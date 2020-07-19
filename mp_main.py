@@ -28,6 +28,17 @@ def count_medium_boxes(rest_from_large: int) -> int:
         return 0
 
 
+def count_small_boxes(rest_from_medium: int) -> int:
+    if rest_from_medium:
+        small = rest_from_medium // 3
+        rest = rest_from_medium % 3
+        if rest:
+            small += 1
+        return small
+    else:
+        return 0
+    
+
 def main(quantity: int):
     if input_data_validator(quantity):
         pass
