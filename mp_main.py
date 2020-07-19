@@ -37,7 +37,15 @@ def count_small_boxes(rest_from_medium: int) -> int:
         return small
     else:
         return 0
-    
+
+
+def count_bulk_boxes(boxes: dict) -> int:
+    all_boxes = sum(boxes.values())
+    bulk = all_boxes // 3
+    if all_boxes % 3 > 0 and all_boxes > 1:
+        bulk += 1
+    return bulk
+
 
 def main(quantity: int):
     if input_data_validator(quantity):
