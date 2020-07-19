@@ -59,14 +59,23 @@ def packing_exception(quantity: int) -> dict:
         return {'small': 0, 'medium': 2, 'large': 0, 'bulk': 1}
     else:
         return {'small': 0, 'medium': 0, 'large': 2, 'bulk': 1}
-    
+
 
 def main(quantity: int):
     if input_data_validator(quantity):
-        pass
+        if check_is_it_exception(quantity):
+            boxes = packing_exception(quantity)
+        else:
+            boxes = {'small': 0, 'medium': 0, 'large': 0, 'bulk': 0}
+            boxes['large'], rest = count_large_boxes(quantity)
+            if rest > 3:
+                boxes['medium'] = count_medium_boxes(rest)
+            else:
+                boxes['small'] = count_small_boxes(rest)
+            boxes['bulk'] = count_bulk_boxes(boxes)
+        return boxes
     else:
         return 'Input data should be an integer in the range 1-100'
-
 
 
 
