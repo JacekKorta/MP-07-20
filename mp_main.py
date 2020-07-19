@@ -47,6 +47,20 @@ def count_bulk_boxes(boxes: dict) -> int:
     return bulk
 
 
+def check_is_it_exception(quantity: int) -> bool:
+    if 9 < quantity < 16:
+        return True
+    return False
+
+
+def packing_exception(quantity: int) -> dict:
+    """The simplest way to handle specific packing for items "A" in the range 10-15 based on customer specification"""
+    if quantity < 13:
+        return {'small': 0, 'medium': 2, 'large': 0, 'bulk': 1}
+    else:
+        return {'small': 0, 'medium': 0, 'large': 2, 'bulk': 1}
+    
+
 def main(quantity: int):
     if input_data_validator(quantity):
         pass
