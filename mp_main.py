@@ -78,6 +78,13 @@ def main(quantity: int):
         return 'Input data should be an integer in the range 1-100'
 
 
+if __name__ == '__main__':
+    try:
+        prod_a = int(input('Input the quantity of product "A" '))
+        print(main(prod_a))
+    except ValueError:
+        print('The quantity must be an integer in the range 1-100, please try again.')
+
 
 
 
