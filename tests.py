@@ -116,7 +116,7 @@ class TestDataFromTable(unittest.TestCase):
 
 
 class TestItemsCover(unittest.TestCase):
-    """Tests that all items are in the box"""
+    """Tests if all items are in the box"""
     def test_items_cover(self):
         for qty in range(1, 101):
             boxes = main(qty)
