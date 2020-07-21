@@ -9,8 +9,7 @@ def input_data_validator(input_data) -> bool:
 
 
 def count_large_boxes(quantity: int) -> Tuple[int, int]:
-    large = quantity // 9
-    rest = quantity % 9
+    large, rest = divmod(quantity, 9)
     if rest > 6:
         large += 1
         rest = 0
@@ -19,8 +18,7 @@ def count_large_boxes(quantity: int) -> Tuple[int, int]:
 
 def count_medium_boxes(rest_from_large: int) -> int:
     if rest_from_large:
-        medium = rest_from_large // 6
-        rest = rest_from_large % 6
+        medium, rest = divmod(rest_from_large, 6)
         if rest > 3:
             medium += 1
         return medium
@@ -30,8 +28,7 @@ def count_medium_boxes(rest_from_large: int) -> int:
 
 def count_small_boxes(rest_from_medium: int) -> int:
     if rest_from_medium:
-        small = rest_from_medium // 3
-        rest = rest_from_medium % 3
+        small, rest = divmod(rest_from_medium, 3)
         if rest:
             small += 1
         return small
